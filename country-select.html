@@ -19,7 +19,7 @@ A simple country selector using the paper-dropdown-menu
     </style>
     <iron-ajax auto url="{{resolveUrl('countryCodes.json')}}" handle-as="json" last-response="{{_codes}}"></iron-ajax>
     <paper-dropdown-menu label="{{label}}">
-      <paper-listbox class="dropdown-content" attr-for-selected="value" selected="{{selectedItem}}">
+      <paper-listbox class="dropdown-content" selected="{{_selectedIndex}}">
         <template is="dom-repeat" items="{{_codes.codes}}">
           <paper-item value="[[item]]">[[localize(item)]]</paper-item>
         </template>
@@ -34,24 +34,51 @@ A simple country selector using the paper-dropdown-menu
       Polymer.AppLocalizeBehavior
     ],
     properties: {
+      /**
+       * The label to be displayed in the dropdown menu.
+       *
+       * @attribute label
+       * @type String
+       * @default 'Country'
+       */
       label: {
         type: String,
         value: 'Country'
       },
-      selectedItem: {
-        type: Object,
+      /**
+       * The currently selected country. The country is represented by its ISO 3166-1 alpha-2 code.
+       *
+       * @attribute selectedCountry
+       * @type String
+       */
+      selectedCountry: {
+        type: String,
         notify: true
       },
+      /**
+       * The language code that is used to display the country names. Only English is implemented at the moment.
+       *
+       * @attribute language
+       * @type String
+       * @default 'en'
+       */
       language: {
         type: String,
         value: 'en'
       },
       _codes: {
         type: Object
+      },
+      _selectedIndex: {
+        type: Number,
+        observer: 'changed'
       }
     },
     attached: function() {
       this.loadResources(this.resolveUrl('countries.json'));
+    },
+    changed: function(value) {
+      this.set('selectedCountry', this._codes.codes[value]);
     }
   });
   </script>
