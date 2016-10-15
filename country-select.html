@@ -71,13 +71,13 @@ A simple country selector using the paper-dropdown-menu
       },
       _selectedIndex: {
         type: Number,
-        observer: 'changed'
+        observer: '_changed'
       }
     },
     attached: function() {
       this.loadResources(this.resolveUrl('countries.json'));
     },
-    changed: function(value) {
+    _changed: function(value) {
       this.set('selectedCountry', this._codes.codes[value]);
     }
   });
