@@ -1,7 +1,21 @@
 {
   "name": "country-select",
+  "version": "1.0.0",
   "description": "A simple country selector using the paper-dropdown-menu",
   "main": "country-select.html",
+  "authors": [
+    "Roman Kaufmann <roman.kaufmann.at@gmail.com>"
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "country",
+    "select",
+    "polymer",
+    "web",
+    "component",
+    "web component",
+    "web-components"
+  ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^1.4.1",
