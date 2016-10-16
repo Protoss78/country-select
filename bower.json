@@ -1,6 +1,6 @@
 {
   "name": "country-select",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A simple country selector using the paper-dropdown-menu",
   "main": "country-select.html",
   "authors": [
