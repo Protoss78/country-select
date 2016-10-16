@@ -19,9 +19,9 @@ A simple country selector using the paper-dropdown-menu
     </style>
     <iron-ajax auto url="{{resolveUrl('countryCodes.json')}}" handle-as="json" last-response="{{_codes}}"></iron-ajax>
     <paper-dropdown-menu label="{{label}}">
-      <paper-listbox class="dropdown-content" selected="{{_selectedIndex}}">
+      <paper-listbox class="dropdown-content" attr-for-selected="code" selected="{{selectedCountry}}">
         <template is="dom-repeat" items="{{_codes.codes}}">
-          <paper-item value="[[item]]">[[localize(item)]]</paper-item>
+          <paper-item code="{{item}}">[[localize(item)]]</paper-item>
         </template>
       </paper-listbox>
     </paper-dropdown-menu>
@@ -70,15 +70,11 @@ A simple country selector using the paper-dropdown-menu
         type: Object
       },
       _selectedIndex: {
-        type: Number,
-        observer: '_changed'
+        type: Number
       }
     },
     attached: function() {
       this.loadResources(this.resolveUrl('countries.json'));
-    },
-    _changed: function(value) {
-      this.set('selectedCountry', this._codes.codes[value]);
     }
   });
   </script>

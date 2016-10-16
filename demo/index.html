@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../../polymer/polymer.html">
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
@@ -19,8 +20,9 @@
     <div class="vertical-section-container centered">
       <h3>Basic country-select Demo</h3>
       <demo-snippet>
-        <template>
-          <country-select></country-select>
+        <template is="dom-bind">
+          <div>Selected country code: {{selected}}</div>
+          <country-select selected-country="{{selected}}"></country-select>
         </template>
       </demo-snippet>
     </div>
