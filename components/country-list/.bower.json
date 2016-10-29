@@ -1,0 +1,14 @@
+{
+  "name": "country-list",
+  "homepage": "https://github.com/GreenHopper/country-list",
+  "version": "3.0.4",
+  "_release": "3.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.0.4",
+    "commit": "666d6794be6fdca6fe456b0d80956fdce5a15986"
+  },
+  "_source": "git://github.com/GreenHopper/country-list.git",
+  "_target": "^3.0.0",
+  "_originalSource": "GreenHopper/country-list"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "country-select",
+  "version": "1.0.4",
+  "description": "A simple country selector using the paper-dropdown-menu",
+  "main": "country-select.html",
+  "authors": [
+    "Roman Kaufmann <roman.kaufmann.at@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "country",
+    "select",
+    "polymer",
+    "web",
+    "component",
+    "web component",
+    "web-components"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^1.4.1",
+    "paper-listbox": "polymerelements/paper-listbox#^1.1.2",
+    "paper-item": "PolymerElements/paper-item#^1.2.1",
+    "app-localize-behavior": "PolymerElements/app-localize-behavior#^0.10.0",
+    "iron-ajax": "PolymerElements/iron-ajax#^1.4.3",
+    "country-list": "GreenHopper/country-list#^3.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  }
+}
