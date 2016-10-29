@@ -91,7 +91,6 @@ A simple country selector web component using the paper-dropdown-menu that imple
       var countries = [];
       var lang = this.language.replace('_', '-');
       var values = this.resources[lang];
-      values = values[[lang]];
       var codes = Object.keys(values);
       for (var i = 0; i < codes.length; i++) {
         var country = {};
