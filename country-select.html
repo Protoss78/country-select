@@ -71,8 +71,7 @@ A simple country selector web component using the paper-dropdown-menu that imple
         computed: '_calculateUrl(language)'
       },
       _countries: {
-        type: Array,
-        observer: 'log'
+        type: Array
       },
       _selectedIndex: {
         type: Number
@@ -99,13 +98,9 @@ A simple country selector web component using the paper-dropdown-menu that imple
       }
       countries.sort(this._compareCountry);
       this.set('_countries', countries);
-      //this.countries = countries;
     },
     _calculateUrl: function(language) {
       return '../country-list/data/' + language + '/formatJsCountries.json';
-    },
-    log: function(value) {
-      console.log(value);
     },
     _compareCountry: function(a, b) {
       if (a.name < b.name)
