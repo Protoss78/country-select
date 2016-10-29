@@ -6,11 +6,7 @@
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 <!--
 `country-select`
-A simple country selector web component using the paper-dropdown-menu that implements the app-localize-behavior and can translate the country names. Currently it supports localized country names for following languages:
-<ul>
-<li>English (en)</li>
-<li>German (de)</li>
-</ul>
+A simple country selector web component using the paper-dropdown-menu that implements the app-localize-behavior and can translate the country names. Currently it supports localized country names for 253 languages. The country list is based on [umpirsky/country-list](https://github.com/umpirsky/country-list).
 
 @demo demo/index.html 
 -->
@@ -21,11 +17,11 @@ A simple country selector web component using the paper-dropdown-menu that imple
       display: block;
     }
     </style>
-    <iron-ajax auto url="{{resolveUrl('countryCodes.json')}}" handle-as="json" last-response="{{_codes}}"></iron-ajax>
+    <!--iron-ajax auto url="{{resolveUrl('countryCodes.json')}}" handle-as="json" last-response="{{_codes}}"></iron-ajax-->
     <paper-dropdown-menu label="{{label}}">
       <paper-listbox class="dropdown-content" attr-for-selected="code" selected="{{selectedCountry}}">
-        <template is="dom-repeat" items="{{_codes.codes}}">
-          <paper-item code="{{item}}">[[localize(item)]]</paper-item>
+        <template is="dom-repeat" items="{{_countries}}">
+          <paper-item code="{{item.code}}">[[item.name]]</paper-item>
         </template>
       </paper-listbox>
     </paper-dropdown-menu>
@@ -50,7 +46,7 @@ A simple country selector web component using the paper-dropdown-menu that imple
         value: 'Country'
       },
       /**
-       * The currently selected country. The country is represented by its ISO 3166-1 alpha-2 code.
+       * The currently selected country. The country is represented by its [ISO 3166-1 alpha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
        *
        * @attribute selectedCountry
        * @type String
@@ -60,7 +56,7 @@ A simple country selector web component using the paper-dropdown-menu that imple
         notify: true
       },
       /**
-       * The language code that is used to display the country names. Only English is implemented at the moment.
+       * The language code that is used to display the country names. It is represented using a "locale code" defined in [BCP 47](https://tools.ietf.org/html/bcp47).
        *
        * @attribute language
        * @type String
@@ -70,15 +66,53 @@ A simple country selector web component using the paper-dropdown-menu that imple
         type: String,
         value: 'en'
       },
-      _codes: {
-        type: Object
+      _codeUrl: {
+        type: String,
+        computed: '_calculateUrl(language)'
+      },
+      _countries: {
+        type: Array,
+        observer: 'log'
       },
       _selectedIndex: {
         type: Number
       }
     },
+    ready: function() {
+      this.addEventListener('app-localize-resources-loaded', this._onTranslationLoaded);
+    },
     attached: function() {
-      this.loadResources(this.resolveUrl('countries.json'));
+      this._reloadResources(this._codeUrl);
+    },
+    _reloadResources: function(url) {
+      this.loadResources(this.resolveUrl(url));
+    },
+    _onTranslationLoaded: function() {
+      var countries = [];
+      var values = this.resources[this.language];
+      var codes = Object.keys(values);
+      for (var i = 0; i < codes.length; i++) {
+        var country = {};
+        country.code = codes[i];
+        country.name = values[country.code];
+        countries.push(country);
+      }
+      countries.sort(this._compareCountry);
+      this.set('_countries', countries);
+      //this.countries = countries;
+    },
+    _calculateUrl: function(language) {
+      return '../country-list/data/' + language + '/formatJsCountries.json';
+    },
+    log: function(value) {
+      console.log(value);
+    },
+    _compareCountry: function(a, b) {
+      if (a.name < b.name)
+        return -1;
+      if (a.name > b.name)
+        return 1;
+      return 0;
     }
   });
   </script>
