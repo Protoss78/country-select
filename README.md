@@ -7,8 +7,8 @@ A simple country selector web component using the paper-dropdown-menu that imple
 ```
 <custom-element-demo>
   <template>
-      <link rel=”import” href=”my-element.html”>
-    <next-code-block></next-code-block>
+      <link rel=”import” href=”country-select.html”>
+    <country-select></country-select>
   </template>    
 </custom-element-demo>
 ```
