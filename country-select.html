@@ -68,7 +68,8 @@ A simple country selector web component using the paper-dropdown-menu that imple
       },
       _codeUrl: {
         type: String,
-        computed: '_calculateUrl(language)'
+        computed: '_calculateUrl(language)',
+        observer: '_reloadResources'
       },
       _countries: {
         type: Array
@@ -88,7 +89,9 @@ A simple country selector web component using the paper-dropdown-menu that imple
     },
     _onTranslationLoaded: function() {
       var countries = [];
-      var values = this.resources[this.language];
+      var lang = this.language.replace('_', '-');
+      var values = this.resources[lang];
+      values = values[[lang]];
       var codes = Object.keys(values);
       for (var i = 0; i < codes.length; i++) {
         var country = {};
@@ -100,7 +103,8 @@ A simple country selector web component using the paper-dropdown-menu that imple
       this.set('_countries', countries);
     },
     _calculateUrl: function(language) {
-      return '../country-list/data/' + language + '/formatJsCountries.json';
+      var lang = language.replace('-', '_');
+      return '../country-list/data/' + lang + '/formatJsCountries.json';
     },
     _compareCountry: function(a, b) {
       if (a.name < b.name)

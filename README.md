@@ -1,8 +1,20 @@
 # \<country-select\>
 
-A simple country selector web component using the paper-dropdown-menu that implements the app-localize-behavior and can translate the country names. Currently it supports localized country names for following languages:
-* English (en)
-* German (de)
+A simple country selector web component using the paper-dropdown-menu that implements the app-localize-behavior and can translate the country names. Currently it supports localized country names for 253 languages. The country list is based on [umpirsky/country-list](https://github.com/umpirsky/country-list).
+
+## Inline Demo
+<!--
+```
+<custom-element-demo>
+  <template>
+      <link rel=”import” href=”my-element.html”>
+    <next-code-block></next-code-block>
+  </template>    
+</custom-element-demo>
+```
+-->
+Here is a quick inline demo:
+<country-select></country-select>
 
 ## Docs & Demo
 
