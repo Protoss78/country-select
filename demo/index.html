@@ -6,6 +6,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <!-- Ensure Web Animations polyfill is loaded since neon-animation 2.0 doesn't import it -->
+  <link rel="import" href="../../neon-animation/web-animations.html">
   <link rel="import" href="../../polymer/polymer.html">
   <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
   <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
@@ -16,7 +18,7 @@
   </style>
 </head>
 
-<body>
+<body unresolved>
   <div class="vertical-section-container centered">
     <h3>Basic country-select Demo</h3>
     <demo-snippet>

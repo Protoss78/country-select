@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0-rc.5",
+    "web-animations-js": "web-animations/web-animations-js#^2.2",
     "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#2.0-preview",
     "paper-listbox": "polymerelements/paper-listbox#2.0-preview",
     "paper-item": "PolymerElements/paper-item#2.0-preview",
