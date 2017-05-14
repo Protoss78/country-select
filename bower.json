@@ -22,7 +22,8 @@
     "paper-listbox": "polymerelements/paper-listbox#2.0-preview",
     "paper-item": "PolymerElements/paper-item#2.0-preview",
     "app-localize-behavior": "PolymerElements/app-localize-behavior#2.0-preview",
-    "paper-styles": "PolymerElements/paper-styles#2.0-preview"
+    "paper-styles": "PolymerElements/paper-styles#2.0-preview",
+    "country-list": "GreenHopper/country-list#^3.0.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
