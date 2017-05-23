@@ -1,9 +1,11 @@
 <link rel="import" href="../polymer/polymer.html">
+<!-- Ensure Web Animations polyfill is loaded since neon-animation 2.0 doesn't import it -->
+<link rel="import" href="../neon-animation/web-animations.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../paper-listbox/paper-listbox.html">
 <link rel="import" href="../app-localize-behavior/app-localize-behavior.html">
-<link rel="import" href="../iron-ajax/iron-ajax.html">
+
 <!--
 `country-select`
 A simple country selector web component using the paper-dropdown-menu that implements the app-localize-behavior and can translate the country names. Currently it supports localized country names for 253 languages. The country list is based on [umpirsky/country-list](https://github.com/umpirsky/country-list).
@@ -17,21 +19,21 @@ A simple country selector web component using the paper-dropdown-menu that imple
       display: block;
     }
     </style>
-    <!--iron-ajax auto url="{{resolveUrl('countryCodes.json')}}" handle-as="json" last-response="{{_codes}}"></iron-ajax-->
     <paper-dropdown-menu label="{{label}}">
-      <paper-listbox class="dropdown-content" attr-for-selected="code" selected="{{selectedCountry}}">
+      <paper-listbox slot="dropdown-content" class="dropdown-content" attr-for-selected="code" selected="{{selectedCountry}}">
         <template is="dom-repeat" items="{{_countries}}">
           <paper-item code="{{item.code}}">[[item.name]]</paper-item>
         </template>
       </paper-listbox>
     </paper-dropdown-menu>
+
   </template>
   <script>
   Polymer({
 
     is: 'country-select',
     behaviors: [
-      Polymer.AppLocalizeBehavior
+        Polymer.AppLocalizeBehavior
     ],
     properties: {
       /**
