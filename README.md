@@ -8,7 +8,16 @@ A simple country selector web component using the paper-dropdown-menu that imple
 ```
 <custom-element-demo>
   <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="country-select.html">
+    <style is="custom-style">
+      #container {
+        display: flex;
+      }
+    </style>
+    <div id="container">
+      <next-code-block></next-code-block>
+    </div>
   </template>
 </custom-element-demo>
 ```
