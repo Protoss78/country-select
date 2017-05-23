@@ -15,6 +15,7 @@ A simple country selector web component using the paper-dropdown-menu that imple
 -->
 ```html
 <country-select></country-select>
+<country-select language="de" label="Land"></country-select>
 ```
 
 ![Animation](https://github.com/Protoss78/country-select/blob/master/animation.gif "Animation")
