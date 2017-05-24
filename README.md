@@ -12,7 +12,8 @@ A simple country selector web component using the paper-dropdown-menu that imple
     <link rel="import" href="country-select.html">
     <style is="custom-style">
       #container {
-        display: flex;
+        display: block;
+        height: 400px;
       }
     </style>
     <div id="container">
