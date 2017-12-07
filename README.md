@@ -29,3 +29,13 @@ A simple country selector web component using the paper-dropdown-menu that imple
 ```
 
 ![Animation](https://github.com/Protoss78/country-select/blob/master/animation.gif "Animation")
+
+### Bundle with polymer build
+
+To build include the country list data files in your `polymer.json`.
+
+```json
+"extraDependencies": [
+  "bower_components/country-list/data/**/*.json"
+]
+```
