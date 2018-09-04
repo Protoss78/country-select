@@ -1,3 +1,5 @@
+[![Published on Vaadin  Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/Protoss78country-select)
+[![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/Protoss78country-select.svg)](https://vaadin.com/directory/component/Protoss78country-select)
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/Protoss78/country-select)
 
 # \<country-select\>
